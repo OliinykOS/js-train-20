@@ -182,17 +182,17 @@ newTruck.tow(500);
 // Викликаємо метод tow з вагою більшою за towingCapacity
 newTruck.tow(50000);
 // Додаємо метод drive для прототипу Car, який збільшує kilometers на передане число, та виводить Подорожуємо <kilometers> кілометрів у <brand> <model>.
-Car.prototype.drive = function (value) {
-    this.kilometers += value;
+Car.prototype.drive = function (kilometers) {
+    this.mileage += kilometers;
     console.log(
-        `Подорожуємо ${this.kilometers} кілометрів у ${this.brand} ${this.model}`
+        `Подорожуємо ${kilometers} кілометрів у ${this.brand} ${this.model}.`
     );
 };
 // Використовуємо bind для зв'язування методу drive з конкретним об'єктом car.
-//Car.blind(newCar );???????
 // Це створює нову функцію, в якій this постійно встановлено на car, незалежно від того, як функцію викликають.
+let driveCar = newCar.drive.bind(newCar);
 // Викликаємо функцію зі значенням 100,
-newCar.drive(100);
+driveCar(100);
 /*
  * Функція конструктор: ElectricCar
  * Властивості:
